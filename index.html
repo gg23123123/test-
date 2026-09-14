@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Web Stranica</title>
+    <style>
+        /* CSS: Globalni stilovi i reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #0f172a; /* Tamno plava / siva pozadina */
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* CSS: Stil kartice (Card layout) */
+        .card {
+            background-color: #1e293b;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid #334155;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            color: #3b82f6; /* Plava boja za titulu */
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* CSS: Gumb za interakciju */
+        .btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Klasa koju JavaScript dodaje za animaciju */
+        .liked {
+            background: linear-gradient(135deg, #ec4899, #f43f5e) !important;
+            box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.3) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HTML: Struktura stranice -->
+    <div class="card">
+        <div class="avatar">👨‍💻</div>
+        <h1 id="ime">Tehničar za računalstvo</h1>
+        <div class="title">Budući Developer</div>
+        <p>Trenutno učim osnove C-a u školi, ali istražujem i moderni web dizajn (HTML, CSS i JavaScript). Dobrodošli na moj prvi web projekt!</p>
+        
+        <button class="btn" id="lajkGumb">Lajkaj stranicu</button>
+    </div>
+
+    <!-- JavaScript: Logika i interakcija -->
+    <script>
+        // Hvatanje elemenata iz HTML-a preko njihovih ID-eva
+        const gumb = document.getElementById('lajkGumb');
+        let brojac = 0;
+
+        // Slušamo klik na gumb
+        gumb.addEventListener('click', () => {
+            brojac++;
+            
+            // Mijenjamo tekst na gumbu dinamički
+            gumb.textContent = `Lajkano! (${brojac})`;
+            
+            // Dodajemo novu CSS klasu koja mijenja boju gumba u ružičastu
+            gumb.classList.add('liked');
+        });
+    </script>
+
+</body>
+</html>
